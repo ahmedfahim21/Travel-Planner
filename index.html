@@ -14,26 +14,73 @@
     <title>Travel Plan</title>
 </head>
 <body>
+    <div id="header">
+        <h1>Travel Plan</h1>
+    </div>
   <div id="container">
     <div id="mynetwork">
     </div>
     <div id="container2">
-        <span id="temptext2" style="width: 100%; text-align: center; font-size: x-large">
+        <span id="temptext2" style="width: 100%; text-align: center; font-size: x-large; color: white;">
         </span>
         <span id="temptext" style="width: 100%; text-align: center; font-size: x-large">
             Red link represents bus travel time : <i class="fa fa-bus" aria-hidden="true" style="color: orange"></i><br>
             Green link represents flight travel time : <i class="fa fa-plane" aria-hidden="true" style="color: green"></i><br>
             Click on solve to get Solution !!
         </span>
+        <div class="form">
+        <select name="source" id="source">
+            <option value="0">Delhi</option>
+            <option value="1">Mumbai</option>
+            <option value="2">Gujarat</option>
+            <option value="3">Goa</option>
+            <option value="4">Kanpur</option>
+            <option value="5">Jammu</option>
+            <option value="6">Hyderabad</option>
+            <option value="7">Bangalore</option>
+            <option value="8">Gangtok</option>
+            <option value="9">Meghalaya</option>
+            <option value="10">Chennai</option>
+            <option value="11">Mangaluru</option>
+            <option value="12">Palakkad</option>
+            <option value="13">Bhopal</option>
+            <option value="14">Patna</option>
+            <option value="15">Shimla</option>
+            <option value="16">Ranchi</option>
+            <option value="17">Shillong</option>
+            <option value="18">Lucknow</option>
+            <option value="19">Kolkata</option>
+          </select>
+          <select name="destination" id="destination">
+            <option value="0">Delhi</option>
+            <option value="1">Mumbai</option>
+            <option value="2">Gujarat</option>
+            <option value="3">Goa</option>
+            <option value="4">Kanpur</option>
+            <option value="5">Jammu</option>
+            <option value="6">Hyderabad</option>
+            <option value="7">Bangalore</option>
+            <option value="8">Gangtok</option>
+            <option value="9">Meghalaya</option>
+            <option value="10">Chennai</option>
+            <option value="11">Mangaluru</option>
+            <option value="12">Palakkad</option>
+            <option value="13">Bhopal</option>
+            <option value="14">Patna</option>
+            <option value="15">Shimla</option>
+            <option value="16">Ranchi</option>
+            <option value="17">Shillong</option>
+            <option value="18">Lucknow</option>
+            <option value="19">Kolkata</option>
+          </select>
+          <button type="button" class="btn btn-success" id="solve">Solve</button>
+        </div>
         <div id="mynetwork2" style="display: none"></div>
     </div>
 </div>
-
 <div>
-    <br>
-    <button type="button" class="btn btn-primary" id="generate-graph">Get New Problem</button>
-    <br>
-    <button type="button" class="btn btn-success" id="solve">Solve</button>
+    <button type="button" class="btn btn-primary" id="generate-graph">Refresh</button>
+
 </div>
 
 
