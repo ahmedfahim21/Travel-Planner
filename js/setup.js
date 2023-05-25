@@ -7,16 +7,15 @@ onload = function () {
     const solve = document.getElementById('solve');
     const temptext = document.getElementById('temptext');
     const temptext2 = document.getElementById('temptext2');
-    const cities = ['Delhi', 'Mumbai', 'Gujarat', 'Goa', 'Kanpur', 'Jammu',
-     'Hyderabad', 'Bangalore', 'Gangtok', 'Meghalaya', 'Chennai', 'Mangaluru',
-     'Palakkad','Bhopal','Patna','Shimla','Ranchi','Shillong','Lucknow','Kolkata'];
+    const cities = ['Delhi', 'Mumbai', 'Ahmedabad', 'Goa', 'Jammu',
+    'Hyderabad', 'Bangalore', 'Chennai', 'Mangaluru','Bhopal','Shimla','Shillong','Lucknow','Kolkata'];
   
     // initialise graph options
     const options = {
         edges: {
             labelHighlightBold: true,
             font: {
-                size: 20
+                size: 12
             }
         },
         nodes: {
@@ -44,60 +43,58 @@ onload = function () {
     
     function createData(){
       const E = [
-          [0, 1, 1421],
-          [0, 2, 930],
-          [0, 3, 1926],
-          [0, 4, 486],
-          [0, 5, 588],
-          [0, 6, 1502],
-          [0, 7, 2174],
-          [0, 8, 1542],
-          [0, 9, 2141],
-          [0, 10, 2182],
-          [0, 11, 2172],
-          [0, 12, 2615],
-          [0, 13, 777],
-          [0, 14, 1020],
-          [0, 15, 344],
-          [0, 16, 1161],
-          [0, 17, 1844],
-          [0, 18, 554],
-          [0, 19, 1448],
-          [1, 7, 2174], // Mumbai-Bangalore
-          [2, 3, 1926], // Gujarat-Goa
-          [3, 7, 1926], // Goa-Bangalore
-          [10, 7, 371], // Chennai-Bangalore
-          [10, 11, 717], // Chennai-Mangaluru
-          [10, 12, 606], // Chennai-Palakkad
-          [11, 7, 372], // Mangaluru-Bangalore
-          [11, 12, 342], // Mangaluru-Palakkad
-          [12, 7, 650], // Palakkad-Bangalore
-          [13, 18, 378], // Bhopal - Lucknow
-          [13, 4, 591], // Bhopal - Kanpur
-          [13, 14, 591], // Bhopal - Patna
-          [13, 16, 965], // Bhopal - Ranchi
-          [13, 17, 1607], // Bhopal - Shillong
-          [18, 4, 478], // Lucknow - Kanpur
-          [18, 14, 682], // Lucknow - Patna
-          [18, 16, 926], // Lucknow - Ranchi
-          [18, 17, 1526], // Lucknow - Shillong
-          [4, 14, 1151], // Kanpur - Patna
-          [4, 16, 974], // Kanpur - Ranchi
-          [4, 17, 1662], // Kanpur - Shillong
-          [14, 16, 523], // Patna - Ranchi
-          [14, 17, 1285], // Patna - Shillong
-          [16, 17, 818], // Ranchi - Shillong,
-          [5, 8, 1730], // Jammu - Gangtok
-          [5, 17, 1844], // Jammu - Shillong
-          [5, 19, 1448], // Jammu - Kolkata
-          [15, 8, 1490], // Shimla - Gangtok
-          [15, 17, 1594], // Shimla - Shillong
-          [15, 19, 1512], // Shimla - Kolkata
-          [8, 17, 157], // Gangtok - Shillong
-          [8, 19, 706], // Gangtok - Kolkata
-          [17, 19, 881] // Shillong - Kolkata
-          ];
-        V = 20; // Ensures V is between 3 and 10
+          [0, 1, 24.00],
+          [0, 10, 11.07],
+          [0, 12, 7.83],
+          [1, 2, 8.88],
+          [1, 3, 26.43],
+          [1, 13, 22.42],
+          [2, 3, 23.25],
+          [2, 4, 20.93],
+          [2, 12, 11.67],
+          [2, 13, 15.48],
+          [3, 5, 26.50],
+          [3, 10, 25.45],
+          [3, 12, 27.42],
+          [4, 5, 24.65],
+          [4, 9, 15.63],
+          [4, 10, 15.85],
+          [5, 6, 8.02],
+          [5, 7, 12.03],
+          [5, 8, 16.95],
+          [5, 9, 14.98],
+          [5, 13, 9.93],
+          [6, 7, 6.18],
+          [6, 8, 10.35],
+          [6, 9, 7.68],
+          [6, 10, 6.70],
+          [13, 11, 23.42],
+          [6, 13, 18.77],
+          [7, 8, 3.40],
+          [7, 9, 22.68],
+          [8, 9, 23.23],
+          [8, 10, 21.32],
+          [9, 13, 16.42],
+          [10, 12, 21.58],
+          [12, 13, 17.53]
+        ];
+        F=
+        [
+            [0, 1, 2.5],
+            [0, 5, 2.0],
+            [0, 6, 2.5],
+            [0, 7, 2.5],
+            [0, 13, 2.5],
+            [1, 5, 1.5],
+            [1, 6, 2.0],
+            [1, 7, 2.0],
+            [1, 13, 2.5],
+            [5, 13, 2.5],
+            [6, 7, 1.5],
+            [6, 13, 2.5],
+            [7, 13, 2.5],
+            ]
+        V = 14; 
         let nodes = [];
         for(let i=0;i<V;i++){
             nodes.push({id:i, label: cities[i]})
@@ -110,7 +107,9 @@ onload = function () {
         for(let i=0;i<E.length;i++){
             edges.push({type: 0,from: E[i][0], to: E[i][1], color: 'orange',label: String(E[i][2])});
         }
-        edges.push({type: 1,from: 0, to: 19, color: 'green',label: String(15)});
+        for(let i=0;i<F.length;i++){
+            edges.push({type: 1,from: F[i][0], to: F[i][1], color: 'green',label: String(F[i][2])});
+        }
   
         
   
@@ -187,7 +186,11 @@ onload = function () {
         for(let i=0;i<data['edges'].length;i++) {
             let edge = data['edges'][i];
             if(edge['type']===1)
+            {
+                console.log("plane",i)
                 continue;
+            }
+
             graph[edge['to']].push([edge['from'],parseInt(edge['label'])]);
             graph[edge['from']].push([edge['to'],parseInt(edge['label'])]);
         }
