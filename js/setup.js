@@ -10,26 +10,38 @@ onload = function () {
     const cities = ['Delhi', 'Mumbai', 'Ahmedabad', 'Goa', 'Jammu',
     'Hyderabad', 'Bangalore', 'Chennai', 'Mangaluru','Bhopal','Shimla','Shillong','Lucknow','Kolkata'];
   
-    // initialise graph options
+    // initialise graph options with background color black
+
     const options = {
         edges: {
-            labelHighlightBold: true,
+            
+            // labelHighlightBold: true,
             font: {
-                size: 12
-            }
+                color: '#fff',
+                size: 14, // px
+                strokeWidth: 0, // px
+                
+                align: 'horizontal',
+               
+                
+            
+              },
         },
         nodes: {
-            font: '12px arial red',
+            font: '12px arial #86bf95',
             scaling: {
                 label: true
             },
-            shape: 'icon',
-            icon: {
-                face: 'FontAwesome',
-                code: '\uf015',
-                size: 40,
-                color: '#991133',
-            }
+            // shape: 'icon',
+            // icon: {
+            //     face: 'FontAwesome',
+            //     code: '\uf015',
+            //     size: 40,
+            //     color: '#991133',
+            // }
+
+            shape: "image",
+            image: "images/island-removebg-preview.png"
         }
     };
   
@@ -96,8 +108,11 @@ onload = function () {
             ]
         V = 14; 
         let nodes = [];
-        for(let i=0;i<V;i++){
-            nodes.push({id:i, label: cities[i]})
+        for(let i=0;i<V;i++){ 
+            
+                nodes.push({id:i, label: cities[i],shape:"image",image: "images/island-removebg-preview.png"});
+            
+           
         }
         // Prepares vis.js style nodes for our data
         nodes = new vis.DataSet(nodes);
@@ -114,11 +129,19 @@ onload = function () {
         
   
         // Setting the new values of global variables
-        var src, dst;
+        var src = -1, dst;
         solve.onclick = async function () {
+
+            if(src !== -1){
+                nodes.update({id: src, label: cities[src],image: 'images/island-removebg-preview.png'});
+            }
+
             src = (document.getElementById('source').value);
             dst = (document.getElementById('destination').value);
             console.log(src,dst);
+            // nodes[src].image= "images/boy-removebg-preview.png";
+            nodes.update({id: src, label: cities[src],image: 'images/boy-removebg-preview.png'});
+            console.log(typeof(nodes[0]));
             solved(src,dst);
         }
         console.log(src,dst);
