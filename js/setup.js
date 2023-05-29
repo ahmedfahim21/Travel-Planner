@@ -23,13 +23,8 @@ onload = function () {
             scaling: {
                 label: true
             },
-            shape: 'icon',
-            icon: {
-                face: 'FontAwesome',
-                code: '\uf015',
-                size: 40,
-                color: '#991133',
-            }
+            shape: 'image',
+            image: 'location.webp',
         }
     };
   
@@ -187,7 +182,6 @@ onload = function () {
             let edge = data['edges'][i];
             if(edge['type']===1)
             {
-                console.log("plane",i)
                 continue;
             }
 

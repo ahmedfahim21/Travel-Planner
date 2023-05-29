@@ -16,6 +16,7 @@
 <body>
     <div id="header">
         <h1>Travel Planner</h1>
+        <button type="button" class="btn btn-primary" id="generate-graph">Refresh</button>
     </div>
   <div id="container">
     <div id="mynetwork">
@@ -24,12 +25,13 @@
         <span id="temptext2" style="width: 100%; text-align: center; font-size: x-large; color: white;">
         </span>
         <span id="temptext" style="width: 100%; text-align: center; font-size: x-large">
-            Red link represents bus travel time : <i class="fa fa-bus" aria-hidden="true" style="color: orange"></i><br>
-            Green link represents flight travel time : <i class="fa fa-plane" aria-hidden="true" style="color: green"></i><br>
-            Click on solve to get Solution !!
+            Red link represents bus travel : <i class="fa fa-bus" aria-hidden="true" style="color: orange"></i><br>
+            Green link represents flight travel : <i class="fa fa-plane" aria-hidden="true" style="color: green"></i><br>
+            Click on solve to get the route taking minimum time !!
         </span>
         <div class="form">
         <select name="source" id="source">
+            <option value="">--SELECT--</option>
             <option value="0">Delhi</option>
             <option value="1">Mumbai</option>
             <option value="2">Ahmedabad</option>
@@ -46,6 +48,7 @@
             <option value="13">Kolkata</option>
           </select>
           <select name="destination" id="destination">
+            <option value="">--SELECT--</option>
             <option value="0">Delhi</option>
             <option value="1">Mumbai</option>
             <option value="2">Ahmedabad</option>
@@ -67,7 +70,6 @@
     </div>
 </div>
 <div>
-    <button type="button" class="btn btn-primary" id="generate-graph">Refresh</button>
 
 </div>
 
